@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/articles/create/" method="POST">
+    {% csrf_token %}
+    <p>제목: <input type="text" name="title"></p>
+    <p>내용: <textarea name="content"></textarea></p>
+
+    <input type="submit" />
+</form>
+{# {'title':'adkfjd', 'content':'ddddddddddddd'}형태로 보내진다.#}
+</body>
+</html>
