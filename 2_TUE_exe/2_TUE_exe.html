@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GRID</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <style>
+        *{
+            text-align: center;
+            border:1px solid black;
+        }
+        .row{
+            border: 1px solid deeppink;
+        }
+    </style>
+</head>
+<body>
+    <div class="row"><!--한 행의 범위를 잡아주는 역할-->
+        <div class="col-12">12</div><!--한 열을 12등분으로 나눈다-->
+    </div>
+    <div class="row">
+        <div class="col-4">4</div>
+        <div class="col-4">4</div>
+        <div class="col-4">4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-6">3</div><!--3칸을 차지하다가 줄어들면 6칸 차지-->
+        <div class="col-md-3 col-sm-6">3</div>
+        <div class="col-md-3 col-sm-6">3</div>
+        <div class="col-md-3 col-sm-6">3</div>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6">
+        <div class="col">2</div>
+        <div class="col">2</div>
+        <div class="col">2</div>
+        <div class="col">2</div>
+        <div class="col">2</div>
+        <div class="col">2</div>
+    </div>
+    <div class="row">
+        <div class="col-4">left</div>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-3">3</div>
+                <div class="col-3">3</div>
+                <div class="col-3">3</div>
+                <div class="col-3">3</div>
+            </div>
+        </div>
+        <div class="col-4">right</div>
+    </div>
+</body>
+</html>
