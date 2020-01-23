@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-    {% for article in articles %}
-        {{ article.title }}
-    {% endfor %}
-
+    <div>
+        <ul class="list-group list-group-flush">
+            {% for article in articles %}
+                <a class="list-group-item" href="{% url 'detail_article' article.pk %}">
+                    <li style="list-style:none">{{ article.pk }} : {{ article.title }}</li>
+                </a>
+            {% endfor %}
+        </ul>
+    </div>
+<a href="{% url 'create_article' %}" type="button" class="btn btn-outline-dark">Create</a>
 {% endblock %}
