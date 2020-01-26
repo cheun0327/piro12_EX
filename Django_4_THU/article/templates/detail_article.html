@@ -3,4 +3,20 @@
 {% block content %}
     <h1>{{ article.title }}</h1>
     {{ article.content }}
+    <hr/>
+    <form action="{% url 'create_comment' article.pk %}" method="POST">
+    {% csrf_token %}
+      <div class="form-group">
+        <label for="content">Comment</label>
+        <input type="text" class="form-control" name="content" id="content" placeholder="comment">
+      </div>
+    </form>
+    <hr/>
+    <div class="comment_box">
+    {% for comment in article.comments.all %}
+        <div>
+            {{ comment.content }} | 글쓴이 : {{ comment.author }}
+        </div>
+    {% endfor %}
+    </div>
 {% endblock %}

@@ -1,5 +1,8 @@
-from django.shortcuts import render
-from article.models import Article
+from django.shortcuts import render, redirect
+from django.urls import reverse
+
+import article
+from article.models import Article, Comment
 
 
 def list_article(request):
@@ -17,4 +20,28 @@ def detail_article(request, pk):
     return render(request, 'detail_article.html', data)
 
 def create_article(request):
-    return render(request, 'create_article.html')
+    # if request.method=='GET':
+    if request.method == 'POST':
+        title = request.POST.get('title', None)
+        content = request.POST.get('content', None)
+        print(request.POST)
+        if title and content:
+            article = Article.objects.create(
+                title=title,
+                content=content,
+                author=request.user,
+            )
+            return redirect(reverse('detail_article', kwargs={'pk': article.pk}))
+    elif request.method=='GET':
+        return render(request, 'create_article.html')
+
+def create_comment(request, pk):
+    article = Article.objects.get(pk=pk)
+    content = request.POST.get('content', None)
+    if content:
+        comment = Comment.objects.create(
+            article=article,
+            content=content,
+            author=request.user
+        )
+    return redirect(reverse('detail_article', kwargs={'pk':article.pk}))
